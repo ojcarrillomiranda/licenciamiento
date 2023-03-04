@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.template.loader import get_template
 from datetime import date
 

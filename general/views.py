@@ -16,6 +16,7 @@ def home(request):
 
 
 def enviar_correo_automatico():
+    #prueba con un solo correo
     correo_cliente = ClienteLicencia.objects.all().first()
     precio_base = correo_cliente.licencia.valor_base
     valor_renovacion = correo_cliente.licencia.valor_renovacion
