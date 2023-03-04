@@ -22,7 +22,7 @@ def enviar_correo(request, id):
     fecha_vencimiento = correo_cliente.licencia.fecha_caducidad
     diferencia = fecha_vencimiento - fecha
 
-    if diferencia.days <= 121.667:  # 4 meses
+    if diferencia.days <= 122:  # 4 meses
         template = get_template('correo.html')
         content = template.render({'correo_cliente': correo_cliente, 'total': total})
 
@@ -36,5 +36,6 @@ def enviar_correo(request, id):
         mensaje.attach_alternative(content, 'text/html')
         mensaje.send()
         messages.success(request, 'El correo se envio con exito')
-    messages.error(request, 'La fecha de caducidad aun no se cumple')
+    else:
+        messages.error(request, 'La fecha de caducidad aun no se cumple')
     return redirect('lista_clientes')

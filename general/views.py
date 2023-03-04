@@ -27,7 +27,7 @@ def enviar_correo_automatico():
     fecha_vencimiento = correo_cliente.licencia.fecha_caducidad
     diferencia = fecha_vencimiento - fecha
 
-    if diferencia.days <= 121.667:  # 4 meses
+    if diferencia.days <= 122:  # 4 meses
         template = get_template('correo_automatico.html')
         content = template.render({'correo_cliente': correo_cliente, 'total': total})
 
