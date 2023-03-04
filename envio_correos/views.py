@@ -18,9 +18,9 @@ def enviar_correo(request, id):
     precio_renovacion = precio_base * valor_renovacion / 100 + precio_base
     total = round(precio_renovacion * iva / 100 + precio_renovacion)
 
-    fecha_creacion = correo_cliente.licencia.fecha_creacion
+    fecha = date.today()
     fecha_vencimiento = correo_cliente.licencia.fecha_caducidad
-    diferencia = fecha_vencimiento - fecha_creacion
+    diferencia = fecha_vencimiento - fecha
 
     if diferencia.days <= 121.667:  # 4 meses
         template = get_template('correo.html')
